@@ -1,13 +1,13 @@
 Package.describe({
   summary: "Meteor wrapper around jsforce library",
-  version: '1.8.0',
-  name: 'nsinenko:jsforce',
-  git: 'https://github.com/nsinenko/jsforce.git',
+  version: '1.9.2',
+  name: 'tiveor:jsforce',
+  git: 'https://github.com/tiveor/jsforce.git',
   documentation: 'README.md'
 });
 
 Npm.depends({
-  jsforce: '1.8.0'
+  jsforce: '1.9.2'
 });
 
 Package.on_use(function (api) {
@@ -17,11 +17,11 @@ Package.on_use(function (api) {
     api.export('jsforce');
   }
 
-  api.add_files(['nsinenko:jsforce.js'], 'server');
+  api.add_files(['tiveor:jsforce.js'], 'server');
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('nsinenko:jsforce');
-  api.addFiles('nsinenko:jsforce-tests.js');
+  api.use('tiveor:jsforce');
+  api.addFiles('tiveor:jsforce-tests.js');
 });
