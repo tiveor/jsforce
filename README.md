@@ -20,20 +20,19 @@ Quick Start
 
 ```javascript
   Meteor.startup(function(){
-    sfdcConnection = new jsforce.Connection({ oauth2: { clientId: process.env.SFDC_CLIENT_ID, clientSecret: process.env.SFDC_CLIENT_SECRET }});
-    sfdcConnection.login(process.env.SFDC_USERNAME, process.env.SFDC_PASSWORD);
-  });
 
-  if (Meteor.isServer) {
-    sfdcConnection.sobject("Contact").find({ LastName : { $like : 'A%' })
-      .sort({ CreatedDate: -1, Name : 1 })
-      .limit(5)
-      .skip(10)
-      .execute(function(err, records) {
-        if (err) { return console.error(err); }
-        console.log("fetched : " + records.length);
-      });
-  }
+    const conn = new jsforce.Connection({ oauth2: { clientId: process.env.SFDC_CLIENT_ID, clientSecret: process.env.SFDC_CLIENT_SECRET }});
+    conn.login(process.env.SFDC_USERNAME, process.env.SFDC_PASSWORD);
+      if (err) {
+        return console.error(err); 
+      }      
+      conn.query('SELECT Id, Name FROM Account', function(err, res) {
+        if (err) {
+          return console.error(err);
+        }
+        console.log(res);
+      });    
+  });
 ```
 
 Documentation
