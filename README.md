@@ -1,7 +1,7 @@
 jsforce
 -------
 
-[![Build Status](https://travis-ci.org/nsinenko/jsforce.svg?branch=master)](https://travis-ci.org/nsinenko/jsforce)
+[![Build Status](https://travis-ci.org/tiveor/jsforce.svg?branch=master)](https://travis-ci.org/tiveor/jsforce)
 
 Meteor package for jsforce node.js package providing a wrapper around Salesforce API.
 
