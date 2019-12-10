@@ -12,7 +12,7 @@ Server side only.
 Installation
 ------------
 ```
-meteor add nsinenko:jsforce
+meteor add tiveor:jsforce
 ```
 
 Quick Start
