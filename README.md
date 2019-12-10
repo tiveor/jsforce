@@ -22,7 +22,7 @@ Quick Start
   Meteor.startup(function(){
 
     const conn = new jsforce.Connection({ oauth2: { clientId: process.env.SFDC_CLIENT_ID, clientSecret: process.env.SFDC_CLIENT_SECRET }});
-    conn.login(process.env.SFDC_USERNAME, process.env.SFDC_PASSWORD);
+    conn.login(process.env.SFDC_USERNAME, process.env.SFDC_PASSWORD, function(err, res){
       if (err) {
         return console.error(err); 
       }      
@@ -31,7 +31,8 @@ Quick Start
           return console.error(err);
         }
         console.log(res);
-      });    
+      });
+    });   
   });
 ```
 
